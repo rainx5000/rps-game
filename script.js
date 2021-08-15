@@ -14,7 +14,6 @@ function computerPlay() { //computers selection
 };
 
 function playRound(playerSelection, computerSelection) {
-  // console.log(`computer: ${computerSelection} ||| player: ${playerSelection}`);
   if (playerSelection === "rock" && computerSelection === "rock") { //checks who won
     console.log("Tie");
   } else if (playerSelection === "rock" && computerSelection === "paper") {
