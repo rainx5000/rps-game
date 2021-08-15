@@ -32,4 +32,24 @@ if the random number generator picks 1, it will return paper
 -------
 task 2:
 
+playRound function 
+  should take 2 parameters (playerSelection and computerSelection)
+  playerSelection should be assigned to the prompt function, where its case-insensitive
+  computerSelection should be assigned to the invoked computerPlay function
+
+  compare the 2 parameters
+
+  if player = rock and computer is rock //TIE
+  if player = rock and computer is scissor //player WINS
+  if player = rock and computer is paper // computer WINS
+
+  if player = paper and computer is paper //TIE
+  if player = paper and computer is rock //player WINS
+  if player = paper and computer is scissors //computer WINS
+
+  if player = scissor and computer is scissor //TIE
+  if player = scissor and computer is rock // computer WINS
+  if player = scissor and computer is paper // player WINS
+  
+
 
