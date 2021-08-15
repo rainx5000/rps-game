@@ -52,4 +52,25 @@ playRound function
   if player = scissor and computer is paper // player WINS
   
 
+-------
+task 3
+
+game() function
+
+use the playRound function inside of this function to play 5 rounds
+
+use a for loop to loop over the playRound function 5 times
+
+Keep track of the scores:
+
+player: 0
+computer: 0
+
+add 1 point to whoever wins, if no one wins, no points
+
+when the 5 rounds are over, compare the score, and report the result whichever is the higher number is the winner
+if they are the same number then it is a tie
+
+
+
 

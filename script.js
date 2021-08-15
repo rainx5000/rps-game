@@ -1,4 +1,4 @@
-function computerPlay() {
+function computerPlay() { //computers selection
   let randomNum = Math.floor(Math.random() * 3);
   switch (randomNum) {
     case 0:
@@ -11,34 +11,64 @@ function computerPlay() {
       return "scissor";
       break;
   }
-}
-
-const computerSelection = computerPlay();
-const playerSelection = prompt("rock, paper, scissor, shoot!").toLowerCase();
+};
 
 function playRound(playerSelection, computerSelection) {
-  console.log(`computer: ${computerSelection} ||| player: ${playerSelection}`);
-  if (playerSelection === "rock" && computerSelection === "rock") {
-    return "Tie";
+  // console.log(`computer: ${computerSelection} ||| player: ${playerSelection}`);
+  if (playerSelection === "rock" && computerSelection === "rock") { //checks who won
+    console.log("Tie");
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    return "Computer wins!";
+    console.log("Computer wins!");
+    return "computer";
   } else if (playerSelection === "rock" && computerSelection === "scissor") {
-    return "Player wins";
+    console.log("Player wins");
+    return "player";
   };
   if (playerSelection === "paper" && computerSelection === "paper") {
-    return "Tie";
+    console.log("Tie");
   } else if (playerSelection === "paper" && computerSelection === "scissor") {
-    return "Computer wins!";
+    console.log("Computer wins!");
+    return "computer";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return "Player wins";
+    console.log("Player wins");
+    return "player";
   };
   if (playerSelection === "scissor" && computerSelection === "scissor") {
-    return "Tie";
+    console.log("Tie");
   } else if (playerSelection === "scissor" && computerSelection === "rock") {
-    return "Computer wins!";
+    console.log("Computer wins!");
+    return "computer";
   } else if (playerSelection === "scissor" && computerSelection === "paper") {
-    return "Player wins";
+    console.log("Player wins");
+    return "player";
   }
-}
+};
 
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+  let player = 0;
+  let computer = 0;
+
+  for (let i = 1; i <= 5; i++) {
+    const computerSelection = computerPlay();
+    const playerSelection = prompt("rock, paper, scissor, shoot!").toLowerCase();
+    const round = playRound(playerSelection, computerSelection);
+
+    switch (round) { //update score
+      case "computer":
+        computer++;
+        break;
+      case "player":
+        player++;
+        break;
+    }
+  }
+  if (player === computer) { //checks winner after the game is done
+    console.log("Tie Game");
+  } else if (player > computer) {
+    console.log("Player wins the game");
+  } else {
+    console.log("Computer Wins wins the game");
+  }
+};
+
+game();
