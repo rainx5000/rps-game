@@ -76,7 +76,8 @@ if they are the same number then it is a tie
 ------------------------------------------------
 DOM--
 
-
+When I click either of the 3 buttons -rps-
+playRound() function would get invoked 
 
 
 
