@@ -79,5 +79,9 @@ DOM--
 When I click either of the 3 buttons -rps-
 playRound() function would get invoked 
 
+Which would change the scoreboard, if players wins get 1 point, and vice versa.
+
+
+
 
 

@@ -1,3 +1,8 @@
+// window.addEventListener("click", (e) => {
+//   console.log(e.target)
+// })
+
+
 function computerPlay() { //computers selection
   let randomNum = Math.floor(Math.random() * 3);
   switch (randomNum) {
@@ -14,32 +19,35 @@ function computerPlay() { //computers selection
 };
 
 function playRound(playerSelection, computerSelection) {
+  const playerScore = document.querySelector("#playerScore");
+  const computerScore = document.querySelector("#CPU");
+
   if (playerSelection === "rock" && computerSelection === "rock") { //checks who won
     console.log("Tie");
   } else if (playerSelection === "rock" && computerSelection === "paper") {
     console.log("Computer wins!");
-    return "computer";
+    computerScore.textContent++;
   } else if (playerSelection === "rock" && computerSelection === "scissor") {
     console.log("Player wins");
-    return "player";
+    playerScore.textContent++;
   };
   if (playerSelection === "paper" && computerSelection === "paper") {
     console.log("Tie");
   } else if (playerSelection === "paper" && computerSelection === "scissor") {
     console.log("Computer wins!");
-    return "computer";
+    computerScore.textContent++;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     console.log("Player wins");
-    return "player";
+    playerScore.textContent++;
   };
   if (playerSelection === "scissor" && computerSelection === "scissor") {
     console.log("Tie");
   } else if (playerSelection === "scissor" && computerSelection === "rock") {
     console.log("Computer wins!");
-    return "computer";
+    computerScore.textContent++;
   } else if (playerSelection === "scissor" && computerSelection === "paper") {
     console.log("Player wins");
-    return "player";
+    playerScore.textContent++;
   }
 };
 
