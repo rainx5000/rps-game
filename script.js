@@ -47,27 +47,28 @@ function game() {
   let player = 0;
   let computer = 0;
 
-  for (let i = 1; i <= 5; i++) {
-    const computerSelection = computerPlay();
-    const playerSelection = prompt("rock, paper, scissor, shoot!").toLowerCase();
-    const round = playRound(playerSelection, computerSelection);
+  // for (let i = 1; i <= 5; i++) {
+  //   const computerSelection = computerPlay();
+  //   const playerSelection = prompt("rock, paper, scissor, shoot!").toLowerCase();
+  //   const round = playRound(playerSelection, computerSelection);
 
-    switch (round) { //update score
-      case "computer":
-        computer++;
-        break;
-      case "player":
-        player++;
-        break;
-    }
-  }
+  //   switch (round) { //update score
+  //     case "computer":
+  //       computer++;
+  //       break;
+  //     case "player":
+  //       player++;
+  //       break;
+  //   }
+  // }
   if (player === computer) { //checks winner after the game is done
     console.log("Tie Game");
   } else if (player > computer) {
     console.log("Player wins the game");
   } else {
-    console.log("Computer Wins wins the game");
+    console.log("Computer wins the game");
   }
 };
 
 game();
+
