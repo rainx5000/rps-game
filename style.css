@@ -1,0 +1,22 @@
+.gameBtnsContainer {
+  display: flex;
+  width: 900px;
+  justify-content: space-between;
+}
+
+.gameBtnsContainer > * {
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(141, 187, 96);
+  transition: background-color .24s;
+}
+.gameBtnsContainer > *:hover {
+  box-shadow: 0px 0px 4px 1px rgba(103, 133, 73, 0.712);
+  background-color: rgb(103, 133, 73);
+  cursor: pointer;
+}
+.gameBtnsContainer > * img {
+  height: 250px;
+  pointer-events: none;
+}
