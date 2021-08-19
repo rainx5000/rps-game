@@ -1,4 +1,23 @@
+.gameContainer {
+  display: grid;
+  grid-template-areas: 
+  "scoreboard"
+  "gameBtns"
+  "resetBtn";
+  justify-items: center;
+  margin-top: auto;
+  height: 100vh;
+}
+
+.scoreboard {
+  grid-area: scoreboard;
+  align-self: end;
+}
+
+
 .gameBtnsContainer {
+  grid-area: gameBtns;
+  align-items: center;
   display: flex;
   width: 900px;
   justify-content: space-between;
@@ -20,3 +39,9 @@
   height: 250px;
   pointer-events: none;
 }
+
+.resetBtn {
+  grid-area: resetBtn;
+  align-self: start;
+}
+
