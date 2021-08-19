@@ -2,6 +2,11 @@
 //   console.log(e.target)
 // })
 
+const gameBtnsContainer = document.querySelector(".gameBtnsContainer");
+const gameBtns = gameBtnsContainer.querySelectorAll("button");
+const playerScore = document.querySelector("#playerScore");
+const computerScore = document.querySelector("#CPU");
+
 
 function computerPlay() { //computers selection
   let randomNum = Math.floor(Math.random() * 3);
@@ -19,8 +24,7 @@ function computerPlay() { //computers selection
 };
 
 function playRound(playerSelection, computerSelection) {
-  const playerScore = document.querySelector("#playerScore");
-  const computerScore = document.querySelector("#CPU");
+
 
   if (playerSelection === "rock" && computerSelection === "rock") { //checks who won
     console.log("Tie");
@@ -52,45 +56,44 @@ function playRound(playerSelection, computerSelection) {
 };
 
 function game() {
-  let player = 0;
-  let computer = 0;
 
-  // for (let i = 1; i <= 5; i++) {
-  // const computerSelection = computerPlay();
- 
-  //   const round = playRound(playerSelection, computerSelection);
-
-  //   switch (round) { //update score
-  //     case "computer":
-  //       computer++;
-  //       break;
-  //     case "player":
-  //       player++;
-  //       break;
-  //   }
-  // }
-
-  const gameBtnsContainer = document.querySelector(".gameBtnsContainer");
-  const gameBtns = gameBtnsContainer.querySelectorAll("button");
 
   gameBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
       const playerSelection = e.target.value;
       playRound(playerSelection, computerPlay());
+      checkWinner();
     })
   })
 
 
+  
+}
 
+function checkWinner() {
+  const playerScore = document.querySelector("#playerScore");
+  const computerScore = document.querySelector("#CPU");
 
-  // if (player === computer) { //checks winner after the game is done
-  //   console.log("Tie Game");
-  // } else if (player > computer) {
-  //   console.log("Player wins the game");
-  // } else {
-  //   console.log("Computer wins the game");
-  // }
-};
+  if (playerScore.textContent == 5) { //checks winner after the game is done
+    gameBtns.forEach(btn => btn.setAttribute("disabled", "disabled"))
+  } else if (computerScore.textContent == 5) {
+    gameBtns.forEach(btn => btn.setAttribute("disabled", "disabled"))
+  } 
+  resetGame();
+}
 
+function resetGame() {
+  const resetBtn = document.querySelector("#resetBtn");
+  if (gameBtnsContainer.lastElementChild.getAttribute("disabled")) {
+    resetBtn.addEventListener("click", () => {
+      console.log('hey')
+      gameBtns.forEach(btn => btn.removeAttribute("disabled"))
+      computerScore.textContent = "0";
+      playerScore.textContent = "0";
+    })
+  }
+  
+
+}
 game();
 
