@@ -1,12 +1,11 @@
-// window.addEventListener("click", (e) => {
-//   console.log(e.target)
-// })
-
 const gameBtnsContainer = document.querySelector(".gameBtnsContainer");
 const gameBtns = gameBtnsContainer.querySelectorAll("button");
 const playerScore = document.querySelector("#playerScore");
 const computerScore = document.querySelector("#CPU");
-
+const playerLabel = document.querySelector(".player");
+const computerLabel = document.querySelector(".computer")
+const player = [playerScore, playerLabel];
+const computer = [computerScore, computerLabel];
 
 function computerPlay() { //computers selection
   let randomNum = Math.floor(Math.random() * 3);
@@ -24,40 +23,27 @@ function computerPlay() { //computers selection
 };
 
 function playRound(playerSelection, computerSelection) {
-
-
   if (playerSelection === "rock" && computerSelection === "rock") { //checks who won
-    console.log("Tie");
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    console.log("Computer wins!");
     computerScore.textContent++;
   } else if (playerSelection === "rock" && computerSelection === "scissor") {
-    console.log("Player wins");
     playerScore.textContent++;
   };
   if (playerSelection === "paper" && computerSelection === "paper") {
-    console.log("Tie");
   } else if (playerSelection === "paper" && computerSelection === "scissor") {
-    console.log("Computer wins!");
     computerScore.textContent++;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    console.log("Player wins");
     playerScore.textContent++;
   };
   if (playerSelection === "scissor" && computerSelection === "scissor") {
-    console.log("Tie");
   } else if (playerSelection === "scissor" && computerSelection === "rock") {
-    console.log("Computer wins!");
     computerScore.textContent++;
   } else if (playerSelection === "scissor" && computerSelection === "paper") {
-    console.log("Player wins");
     playerScore.textContent++;
   }
 };
 
 function game() {
-
-
   gameBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
       const playerSelection = e.target.value;
@@ -65,19 +51,19 @@ function game() {
       checkWinner();
     })
   })
-
-
-  
 }
 
 function checkWinner() {
-  const playerScore = document.querySelector("#playerScore");
-  const computerScore = document.querySelector("#CPU");
-
   if (playerScore.textContent == 5) { //checks winner after the game is done
     gameBtns.forEach(btn => btn.setAttribute("disabled", "disabled"))
+    gameBtns.forEach(btn => btn.classList.add("disabledBtn"));
+    player.forEach(el => el.classList.add("winner"))
+    computer.forEach(el => el.classList.add("loser"))
   } else if (computerScore.textContent == 5) {
     gameBtns.forEach(btn => btn.setAttribute("disabled", "disabled"))
+    gameBtns.forEach(btn => btn.classList.add("disabledBtn"));
+    player.forEach(el => el.classList.add("loser"))
+    computer.forEach(el => el.classList.add("winner"))
   } 
   resetGame();
 }
@@ -86,14 +72,14 @@ function resetGame() {
   const resetBtn = document.querySelector("#resetBtn");
   if (gameBtnsContainer.lastElementChild.getAttribute("disabled")) {
     resetBtn.addEventListener("click", () => {
-      console.log('hey')
       gameBtns.forEach(btn => btn.removeAttribute("disabled"))
+      gameBtns.forEach(btn => btn.classList.remove("disabledBtn"));
       computerScore.textContent = "0";
       playerScore.textContent = "0";
+      player.forEach(el => el.classList.remove("winner"))
+      computer.forEach(el => el.classList.remove("loser"))
     })
   }
-  
-
 }
 game();
 

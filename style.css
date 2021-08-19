@@ -24,12 +24,12 @@
 #playerScore {
   margin-right: 200px;
   margin-left: 20px;
-  border-left: 5px solid black;
+  border-left: 5px solid;
   padding-left: 30px;
 }
 #CPU {
   margin-right: 20px;
-  border-right: 5px solid black;
+  border-right: 5px solid;
   padding-right: 20px;
 }
 
@@ -77,5 +77,19 @@
 }
 .resetBtn:hover {
   box-shadow: 0px 0px 2px 1px rgb(170, 74, 68); 
+}
+
+.winner {
+  color: green;
+  border-color: green;
+}
+.loser {
+  color: red;
+  border-color: red;
+}
+
+.disabledBtn {
+  opacity: .5;
+  pointer-events: none;
 }
 
