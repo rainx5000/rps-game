@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+
 .gameContainer {
   display: grid;
   grid-template-areas: 
@@ -7,12 +10,29 @@
   justify-items: center;
   margin-top: auto;
   height: 100vh;
+  font-family: 'Rubik', sans-serif;
 }
 
 .scoreboard {
   grid-area: scoreboard;
   align-self: end;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 10px;
 }
+
+#playerScore {
+  margin-right: 200px;
+  margin-left: 20px;
+  border-left: 5px solid black;
+  padding-left: 30px;
+}
+#CPU {
+  margin-right: 20px;
+  border-right: 5px solid black;
+  padding-right: 20px;
+}
+
 
 
 .gameBtnsContainer {
